@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wesleys-dog-game/static/css/main.d1080a13.css",
+    "main.js": "/wesleys-dog-game/static/js/main.50560d20.js",
+    "index.html": "/wesleys-dog-game/index.html",
+    "main.d1080a13.css.map": "/wesleys-dog-game/static/css/main.d1080a13.css.map",
+    "main.50560d20.js.map": "/wesleys-dog-game/static/js/main.50560d20.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d1080a13.css",
+    "static/js/main.50560d20.js"
+  ]
+}
