@@ -1,5 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
+import './DogGameStyles.css'
 
 const DogGame = () => {
     const [choice1, setChoice1] = useState('');
@@ -25,7 +26,7 @@ const DogGame = () => {
         try {
             if (response.ok) {
                 const data = await response.json();
-                console.log(data);
+                console.log("api data: ", data);
                 setChoice1(data.message[0]);
                 setChoice2(data.message[1]);
                 setChoice3(data.message[2]);
@@ -48,21 +49,120 @@ const DogGame = () => {
 
     return(
         <>
-        {choice1 &&
-        <div>
-            <div>
+        {counter === 0 &&
+        <div className = "button-container">
+            <div className = "button-box">
                 <button
                     onClick = {() => {
                         increaseCounter();
+                        setDog1(choice1);
                     }}><img src={choice1} alt='dog1' />
                 </button>
             </div>
-            <div>
+            <div className = "button-box">
                 <button
                     onClick = {() => {
                         increaseCounter();
+                        setDog1(choice2);
                     }}><img src={choice2} alt='dog2' />
                 </button>
+            </div>
+        </div>
+        }
+        {counter === 1 &&
+        <div className = "button-container">
+            <div className = "button-box">
+                <button
+                    onClick = {() => {
+                        increaseCounter();
+                        setDog2(choice3);
+                    }}><img src={choice3} alt='dog3' />
+                </button>
+            </div>
+            <div className = "button-box">
+                <button
+                    onClick = {() => {
+                        increaseCounter();
+                        setDog2(choice4);
+                    }}><img src={choice4} alt='dog4' />
+                </button>
+            </div>
+        </div>
+        }
+        {counter === 2 &&
+        <div className = "button-container">
+            <div className = "button-box">
+                <button
+                    onClick = {() => {
+                        increaseCounter();
+                        setDog3(choice5);
+                    }}><img src={choice5} alt='dog5' />
+                </button>
+            </div>
+            <div className = "button-box">
+                <button
+                    onClick = {() => {
+                        increaseCounter();
+                        setDog3(choice6);
+                    }}><img src={choice6} alt='dog6' />
+                </button>
+            </div>
+        </div>
+        }
+        {counter === 3 &&
+        <div className = "button-container">
+            <div className = "button-box">
+                <button
+                    onClick = {() => {
+                        increaseCounter();
+                        setWinner(dog1);
+                    }}><img src={dog1} alt='winner dog 1' />
+                </button>
+            </div>
+            <div className = "button-box">
+                <button
+                    onClick = {() => {
+                        increaseCounter();
+                        setWinner(dog2);
+                    }}><img src={dog2} alt='winner dog 2' />
+                </button>
+            </div>
+        </div>
+        }
+        {counter === 4 &&
+        <div className = "button-container">
+            <div className = "button-box">
+                <button
+                    onClick = {() => {
+                        increaseCounter();
+                    }}><img src={winner} alt='winner dog' />
+                </button>
+            </div>
+            <div className = "button-box">
+                <button
+                    onClick = {() => {
+                        increaseCounter();
+                        setWinner(dog3);
+                    }}><img src={dog3} alt='winner dog 3' />
+                </button>
+            </div>
+        </div>
+        }
+        {counter === 5 &&
+        <div>
+            <h2>Winner</h2>
+            <div>
+                <img src={winner} alt="winner dog" />
+            </div>
+            <div>
+                <button
+                    onClick= {() => {
+                        setCounter(0);
+                        fetchDogData();
+                        }
+                    }>
+                        Play Again?
+                    </button>
             </div>
         </div>
         }
