@@ -3,10 +3,22 @@
 .game-container {
     text-align: center;
     padding: 20px;
-    background-image: null;
     background-size: cover;
-    background-postion: center;
+    background-position: center;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .game-title {
@@ -15,37 +27,28 @@
     margin-top: 20px;
 }
 
-.button-container {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    flex-wrap: wrap;
-}
-
-.button-box {
-    width: 25%;
-    height: 25%;
-    border-radius: 10%;
-    overflow: hidden;
-}
-
-.button-box button {
+.image-grid button {
     width: 100%;
+    padding: 0;
     height: 100%;
     border: none;
     background-color: transparent;
     cursor: grab;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.button-box img {
+.image-grid img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block;
     object-fit: cover;
     border-radius: 10%;
 }
 
 .winner-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -53,28 +56,30 @@
     border-radius: 10%
 }
 
-.winner-image {
-    width: 100px;
-    height: 100px;
-    margin-top: 20px;
+.winner-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
     border-radius: 10%;
     object-fit: cover;
 }
 
-.play-again-button {
+.play-again-button button {
     padding: 10px 20px;
     border: none;
-    background-color: null;
+    background-color: #007bff;
     color: white;
     font-size: 1.5rem;
-    border-radius: 10%;
+    border-radius: 10px;
     cursor: grab;
+    margin-top: 20px;
+}
+
+.play-again-button button:hover {
+    background-color: #0056b3;
 }
 
 @media (max-width: 768px) {
-    .button-container {
-        flex-direction: column;
-    }
 
     .game-title {
         font-size: 1.5rem;
