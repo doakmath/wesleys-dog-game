@@ -43,6 +43,18 @@ const DogGame = () => {
         setCounter(counter + 1);
     }
 
+    const extractBreedFromImageUrl = (url) => {
+        const parts = url.split('/');
+        // Find the index of the part containing 'breeds'
+        const breedsIndex = parts.findIndex(part => part === 'breeds');
+        // Extract the breed name from the next part after 'breeds'
+        if (breedsIndex !== -1 && parts.length > breedsIndex + 1) {
+            return parts[breedsIndex + 1];
+        } else {
+            return 'Breed not found';
+        }
+    }
+
 
     console.log("counter: ", counter);
 
@@ -50,10 +62,19 @@ const DogGame = () => {
     return(
         <>
         <div className="game-container">
-            <h1 className="game-title">Wesley's Dog Game</h1>
-
             {counter === 0 &&
+            <div>
+                <h1 className="game-title">Wesley's Dog Game</h1>
+                <button
+                    onClick={() => {
+                        increaseCounter();
+                    }}>
+                        Start Game
+                </button>
+            </div>}
+            {counter === 1 &&
             <div className = "button-container">
+                <h1>Choose your favorite!</h1>
                 <div className = "button-box">
                     <button
                         onClick = {() => {
@@ -72,8 +93,9 @@ const DogGame = () => {
                 </div>
             </div>
             }
-            {counter === 1 &&
+            {counter === 2 &&
             <div className = "button-container">
+                <h1>Choose your favorite!</h1>
                 <div className = "button-box">
                     <button
                         onClick = {() => {
@@ -92,8 +114,9 @@ const DogGame = () => {
                 </div>
             </div>
             }
-            {counter === 2 &&
+            {counter === 3 &&
             <div className = "button-container">
+                <h1>Choose your favorite!</h1>
                 <div className = "button-box">
                     <button
                         onClick = {() => {
@@ -112,8 +135,9 @@ const DogGame = () => {
                 </div>
             </div>
             }
-            {counter === 3 &&
+            {counter === 4 &&
             <div className = "button-container">
+                <h1>Choose your favorite!</h1>
                 <div className = "button-box">
                     <button
                         onClick = {() => {
@@ -132,8 +156,9 @@ const DogGame = () => {
                 </div>
             </div>
             }
-            {counter === 4 &&
+            {counter === 5 &&
             <div className = "button-container">
+                <h1>Choose your favorite!</h1>
                 <div className = "button-box">
                     <button
                         onClick = {() => {
@@ -151,16 +176,17 @@ const DogGame = () => {
                 </div>
             </div>
             }
-            {counter === 5 &&
+            {counter === 6 &&
             <div className="winner-container">
                 <div className="winner-image">
                     <h2>Winner</h2>
-                    <p>insert breed and info?</p>
+                    <h3>Breed:</h3>
+                    <h3>{extractBreedFromImageUrl(winner)}</h3>
                     <img src={winner} alt="winner dog" />
                     <div className="play-again-button">
                         <button
                             onClick= {() => {
-                                setCounter(0);
+                                setCounter(1);
                                 fetchDogData();
                                 }
                             }>
