@@ -26,7 +26,6 @@ const DogGame = () => {
         try {
             if (response.ok) {
                 const data = await response.json();
-                console.log("api data: ", data);
                 setChoice1(data.message[0]);
                 setChoice2(data.message[1]);
                 setChoice3(data.message[2]);
@@ -54,9 +53,6 @@ const DogGame = () => {
             return 'Breed not found';
         }
     }
-
-
-    console.log("counter: ", counter);
 
 
     return(

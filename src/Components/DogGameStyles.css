@@ -1,5 +1,16 @@
 
 
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../common/background2.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
 .game-container {
     text-align: center;
     padding: 20px;
@@ -24,7 +35,7 @@
 .game-title {
     font-size: 2rem;
     color:blue;
-    margin-top: 20px;
+    margin-top: 1px;
 }
 
 .image-grid button {
@@ -80,6 +91,10 @@
 }
 
 @media (max-width: 768px) {
+
+    body {
+        background-size: auto;
+    }
 
     .game-title {
         font-size: 1.5rem;
